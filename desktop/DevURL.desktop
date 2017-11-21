@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dev URL
+Icon=chromium
+Exec=chromium --app=http://localhost:8000
+Comment=Chromium app for  web dev url
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=webDev

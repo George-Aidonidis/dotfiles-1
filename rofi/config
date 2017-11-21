@@ -1,0 +1,17 @@
+rofi.fullscreen: true
+rofi.color-enabled: true
+rofi.color-window: argb:e81d1d26,argb:00292f37,#4084D6
+rofi.color-normal: argb:02000000,#B3B3AD,argb:02000000,argb:02000000,#4084D6
+rofi.color-active: argb:02000000,#B3B3AD,argb:02000000,argb:02000000,#B3B3AD
+rofi.color-urgent: argb:02000000,#B3B3AD,argb:02000000,argb:02000000,#B3B3AD
+
+rofi.font: Iosevka 32
+rofi.eh: 1
+rofi.line-margin: 20
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.lines: 3
+rofi.width: 100
+rofi.padding: 200
+rofi.bw: 0
+

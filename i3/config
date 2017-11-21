@@ -1,0 +1,275 @@
+# Set variables
+
+# Windows key is mod -> mod1 is alt
+set $mod Mod4
+set $alt Mod1
+# Defining workspace functions
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws0 "10"
+
+# Set colors from Xresources
+set_from_resource       $active       active
+set_from_resource       $inactive     secondary
+set_from_resource       $background   background
+set_from_resource       $foreground   foreground
+
+# Screen
+
+# Home screen
+set $home DP-2
+# PC Screen
+set $pc eDP1
+
+# Font for window titles.
+font Ubuntu 14
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+#::::::::::::::::::::::::: Keybindings ::::::::::::::::::::::::::#
+# start a terminal
+bindsym $mod+Return exec termite `xcwd`
+
+# kill focused window
+bindsym $mod+q kill
+bindsym $alt+F4 kill
+
+#Program launcher (i.e. Dmenu/Rofi)
+bindsym $mod+d exec rofi -show drun -display-drun "-"
+
+# File manager
+bindsym $mod+z exec thunar `xcwd`
+
+# Color picker
+bindsym $mod+p exec gpick -p
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
+
+bindsym Print exec "~/Bin/capture" 
+
+# play | pause | next | previous on Spotify or Rhythmbox
+bindsym $mod+Control+Down exec "playerctl play-pause"
+bindsym $mod+Control+Up exec "playerctl play-pause"
+bindsym $mod+Control+Right exec "playerctl next"
+bindsym $mod+Control+Left exec "playerctl previous"
+# Raise/Lower and mute volume with volnoti popup ( AUR: volnoti-brightness-git )
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)" 
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)" 
+bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle && if amixer get Master | grep -Fq '[off]'; then volnoti-show -m; else volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1); fi" 
+
+# Sreen brightness controls with a like vilnoti popup ( AUR: volnoti-brightness-git )
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 2 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(xbacklight -get)" 
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 2 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(xbacklight -get)"
+
+
+# split in horizontal orientation
+bindsym $mod+semicolon split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# focus the parent container
+ bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+# move workspace to the home screen
+bindsym $mod+m move workspace to output left
+
+# toggle between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "Resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "Resize"
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id "~/Bin/lock", mode "default"
+    bindsym s exec --no-startup-id "~/Bin/lock suspend", mode "default"
+    bindsym h exec --no-startup-id "~/Bin/lock hibernate", mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+
+#::::::::::::::::::::::::: Autostart apps ::::::::::::::::::::::::::#
+exec_always --no-startup-id feh --bg-scale ~/Bilili/Wallpapers/wallpaper # Set wallpaper
+exec_always --no-startup-id "killall polybar ; polybar -r main ; polybar -r home " # Status Bar
+exec --no-startup-id compton # compositor for X11
+exec --no-startup-id unclutter -keystroke -idle 5 # make cursor invisible when you are taping text or after 5s of inactivity
+exec --no-startup-id "~/.keymap.sh" # remap keys
+exec --no-startup-id volnoti #"A lightweight volume notification daemon
+exec --no-startup-id nm-applet --sm-disable # Network manager
+exec --no-startup-id blueman-applet # Bluetooth applet
+exec --no-startup-id dunst # Notification-daemon
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id cryptkeeper # crypt tools
+exec --no-startup-id tilda # Launch terminal
+#exec --no-startup-id "code ~/Workspace" # Open projet the Workspace directory with VSCODE
+exec --no-startup-id slack # Launch slack
+exec --no-startup-id KeeWeb # Password manager
+exec --no-startup-id megasync # Cloud sync
+#exec --no-startup-id spotify # Launch Spotify
+#exec --no-startup-id musixmatch # For lyrics
+
+# For authentification
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Lock in case of user inactivity under X
+exec --no-startup-id xautolock -time 10 -corners 0-00 -locker "~/Bin/lock" &
+
+#::::::::::::::::::::::::: App assigned in workspace ::::::::::::::::::::::::::#
+
+# TERM in Workspace 6
+assign [class="st-256color|Termite"]												$ws6
+
+# File manager
+assign [class="Thunar|Caja|Pcmanfm" ]														$ws1
+
+# Browsers in Workspace 2
+assign [class="Chromium|Firefox|Google-chrome-unstable|Opera" ]						$ws2
+# Editors and IDE in Workspace 3
+
+assign [class="Code|^jetbrains|Typora" ]													$ws3
+# Messageries & Mails
+
+assign [class="Geary|Evolution|Mailspring"]											$ws5
+assign [class="Slack"]																$ws8
+# Music and videos
+assign [class="Spotify|spotify|Vlc|Rhythmbox|Musixmatch|Parole" ]							$ws7
+
+# Others
+assign [class="Boostnote|Transmission|KeeWeb"]								$ws9
+assign [class="VirtualBox|Gnome-chess|Pychess|Zeal|MuPDF" ]									$ws0
+
+#for_window [class="st-256color"] move to workspace $ws6
+for_window [class="Spotify"] move to workspace $ws7
+for_window [class="KeeWeb"] move to workspace $ws9
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+# filemanager focus
+for_window [class="Caja|Thunar"] focus
+
+#::::::::::::::::::::::::: FLOATING or TILED ::::::::::::::::::::::::::#
+for_window [class="Peek"] floating enable
+for_window [class="^Gpick$"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Klavaro"] floating enable
+for_window [class="GParted"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+
+
+#::::::::::::::::::::::::: APPEARANCE ::::::::::::::::::::::::::#
+for_window [class="^.*"] border pixel 2
+gaps inner 8
+smart_gaps on
+smart_borders on
+workspace 4 gaps inner 0
+workspace 6 gaps inner 0
+workspace 3 gaps inner 0
+
+# Colour Configurations
+set $bg-color            #4f5b66
+set $inactive-bg-color   #343d46
+set $text-color          #4084D6
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #bf616a
+set $cheeky              #282828
+
+# hide_edge_borders both
+
+# window colors
+#                         border                background          text                   indicator
+client.focused            $active              $active             $active                 $active
+client.unfocused          $background          $background         $background
+client.urgent             $urgent              $urgent             $urgent                 $urgent
+

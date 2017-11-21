@@ -1,0 +1,114 @@
+{
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "workbench.colorTheme": "Material Palenight for Operator Mono",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "'Fira Code Medium', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "boundary",
+    "editor.tabCompletion": true,
+    "editor.fontWeight": "800",
+    "editor.lineNumbers": "relative",
+    "editor.renderLineHighlight": "all",
+    "workbench.sideBar.location": "left",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "emmet.includeLanguages": {},
+    "debug.allowBreakpointsEverywhere": true,
+    "zenMode.hideTabs": false,
+    "zenMode.hideStatusBar": false,
+    "terminal.integrated.fontSize": 16,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": false,
+    "puglint.enable": true,
+    "files.trimTrailingWhitespace": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "auto-close-tag.SublimeText3Mode": true,
+    "auto-close-tag.fullMode": true,
+    "typescript.check.npmIsInstalled": false,
+    "editor.insertSpaces": false,
+    "color-highlight.markerType": "foreground",
+    "eslint._legacyModuleResolve": true,
+    "prettier.eslintIntegration": true,
+    "pugbeautify.fillTab": true,
+    "window.zoomLevel": 0,
+    "vim.searchHighlightColor": "rgb(71, 59, 108)",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-v>": false,
+        "<C-d>": false,
+        "<C-x>": false,
+        "<C-w>": false,
+        "<C-c>": false
+    },
+    "workbench.colorCustomizations": {
+        "badge.background": "#4084D6"
+    },
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["z","w"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [ "z","z" ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                },
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<C-y>"],
+            "after": ["4","<C-y>"]
+        },
+        {
+            "before": ["<C-e>"],
+            "after": ["4","<C-e>"]
+        },
+        {
+            "before": ["Y"],
+            "after": ["y","$"]
+        },
+        {
+            "before": ["<leader>","o"],
+            "after": ["o","<Esc>"]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "gitlens.annotations.line.trailing.format": "${message} • ${authorAgo}",
+    "go.gopath": "/home/visi/.golang",
+    "extensions.ignoreRecommendations": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.leader": ",",
+    "rust.mode": "legacy",
+     "editor.detectIndentation": false,
+	"workbench.panel.location": "bottom",
+     "java.home": "/usr/lib/jvm/java-8-openjdk",
+     "gitlens.gitExplorer.files.layout": "auto",
+	"eslint.packageManager": "yarn",
+	"vim.disableExtension": false
+}
