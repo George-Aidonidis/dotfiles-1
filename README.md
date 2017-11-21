@@ -2,7 +2,7 @@
 
 This repo contains my personal dotfiles. I copy stuffs from several people and I personalize those to go better with my workflow. I remain open to any improvement ! And you are free to clone and to adapte to your sauce.
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshot.png)
 
 [more screenshots](https://imgur.com/gallery/oXv0Mi).
 
