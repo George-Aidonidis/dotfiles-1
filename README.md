@@ -4,7 +4,7 @@ This repo contains my personal dotfiles. I copy stuffs from several people and I
 
 ![Screenshot](Screenshot.png)
 
-[more screenshots](https://imgur.com/gallery/oXv0Mi).
+[more screenshots](https://imgur.com/gallery/oXv0i ).
 
 ## My setup
 
