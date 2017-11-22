@@ -164,17 +164,17 @@ format-disconnected =<label-disconnected>
 label-connected = %upspeed%-%downspeed% 
 format-connected-foreground = #ffffff
 
-[module/eth-speed]
+[module/eth]
 type = internal/network
 interface = enp0s25
 interval = 3.0
 format-connected-padding = 1
 label-connected =  %local_ip%
 
-[module/eth]
+[module/eth-speed]
 type = internal/network
 interface = enp0s25
-interval = 3.0
+interval = 0.1
 format-connected-padding = 1
 label-connected =  %upspeed%-%downspeed%
 
