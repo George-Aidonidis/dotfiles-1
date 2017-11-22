@@ -163,7 +163,7 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+period
+    # close = ctrl+periode
 
     # Close all notifications.
     close_all = ctrl+shift+space
@@ -172,7 +172,7 @@
     context = ctrl+space
 
     # Redisplay last message(s).
-    history = ctrl+mod1+space
+    # history = ctrl+periode+space
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
